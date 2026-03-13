@@ -66,12 +66,6 @@ registrations - Event registrations
 applications - Membership applications
 ```
 
-### Configuration:
-```javascript
-SUPABASE_URL: https://itpkvcrlakjxisrfzagj.supabase.co
-SUPABASE_ANON_KEY: [provided in source code]
-```
-
 ## 🚀 Quick Start
 
 1. **Clone/Download** the project
@@ -107,15 +101,6 @@ event_title, university_email, phone_number, gr_number, branch, semester
 ```
 email, phone, branch, semester
 ```
-
-## 📞 Contact
-
-**Faculty Coordinator**: Karan Motwani  
-**Email**: karan.motwani@marwadiuniversity.ac.in
-
-**Student Chapter Website**  
-**Mechanical Engineering Department**  
-**Marwadi University**
 
 ---
 
