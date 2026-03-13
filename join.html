@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join ASME | Marwadi University</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Navbar Logo Styling - Matches Home/Committee/Events */
+        .asme-logo {
+            height: 48px;
+            width: 48px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            filter: brightness(1.1);
+        }
+
+        /* Animation for the Success Modal */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+        /* Custom styling for select toggles to match theme */
+        select {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-900 min-h-screen flex flex-col">
+
+    <nav class="bg-blue-900 text-white p-3 sticky top-0 z-50 shadow-xl border-none">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="logo.png" alt="ASME MU Logo" class="asme-logo">
+                <div class="border-l border-white/20 pl-4">
+                    <h1 class="text-xl md:text-2xl font-bold tracking-tight italic leading-tight">
+                        ASME <span class="font-light text-blue-200 text-lg not-italic">| Marwadi University</span>
+                    </h1>
+                </div>
+            </div>
+            <ul class="flex space-x-8 text-xs uppercase tracking-widest font-semibold">
+                <li><a href="index.html" class="hover:text-blue-300 transition">Home</a></li>
+                <li><a href="committee.html" class="hover:text-blue-300 transition">Committee</a></li>
+                <li><a href="events.html" class="hover:text-blue-300 transition">Events</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="flex-grow py-20 px-4">
+        <div class="max-w-xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+            <div class="bg-blue-800 p-10 text-white text-center">
+                <i class="fas fa-id-card text-4xl mb-4"></i>
+                <h2 class="text-3xl font-black uppercase tracking-tighter">Enter Credentials</h2>
+            </div>
+            
+            <form id="registrationForm" class="p-8 space-y-6">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">College Email ID</label>
+                    <div class="relative">
+                        <i class="fas fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        <input type="email" placeholder="example@marwadiuniversity.ac.in" required
+                            class="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-600 focus:outline-none transition">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Phone Number</label>
+                    <div class="relative">
+                        <i class="fas fa-phone absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        <input type="tel" placeholder="+91 00000 00000" required
+                            class="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-600 focus:outline-none transition">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Branch</label>
+                        <select id="branchSelect" onchange="toggleOtherBranch()" required 
+                            class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-600 focus:outline-none transition appearance-none cursor-pointer">
+                            <option value="">Select Branch</option>
+                            <option value="Mechanical">Mechanical</option>
+                            <option value="ICT">ICT</option>
+                            <option value="Civil">Civil</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Semester</label>
+                        <select id="semesterSelect" required 
+                            class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-600 focus:outline-none transition appearance-none cursor-pointer">
+                            <option value="">Select Sem</option>
+                            <option value="1">Sem 1</option>
+                            <option value="2">Sem 2</option>
+                            <option value="3">Sem 3</option>
+                            <option value="4">Sem 4</option>
+                            <option value="5">Sem 5</option>
+                            <option value="6">Sem 6</option>
+                            <option value="7">Sem 7</option>
+                            <option value="8">Sem 8</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="otherBranchContainer" class="hidden">
+                    <label class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Specify Your Branch</label>
+                    <div class="relative">
+                        <i class="fas fa-graduation-cap absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        <input type="text" id="otherBranchInput" placeholder="Enter your branch name"
+                            class="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-600 focus:outline-none transition">
+                    </div>
+                </div>
+
+                <button type="submit" id="submitBtn" class="w-full bg-blue-900 text-white py-4 rounded-xl font-bold hover:bg-blue-800 transition shadow-lg uppercase tracking-widest">
+                    Submit Registration
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <div id="successModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-blue-900/90 backdrop-blur-sm animate-fade-in">
+        <div class="bg-white w-full max-sm rounded-3xl overflow-hidden shadow-2xl transform transition-all text-center p-8">
+            <div class="w-20 h-20 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 class="text-2xl font-black text-gray-800 uppercase tracking-tight mb-2">Registration Sent!</h2>
+            <p class="text-gray-500 text-sm leading-relaxed mb-8">
+                Your credentials have been securely received. Welcome to the "ASME Marwadi University chapter".
+            </p>
+            <button onclick="redirectToHome()" class="w-full bg-blue-900 text-white py-4 rounded-xl font-bold hover:bg-blue-800 transition shadow-lg uppercase tracking-widest text-xs">
+                Got it, thanks!
+            </button>
+        </div>
+    </div>
+
+    <footer class="bg-gray-900 text-white py-12 text-center">
+        <div class="flex flex-col items-center gap-4">
+            <a href="index.html" class="bg-gray-700 px-8 py-3 rounded-full font-bold hover:bg-gray-600 transition inline-block shadow-lg">Back to Home</a>
+        </div>
+        <p class="text-xs text-gray-500 uppercase tracking-widest mt-8 block">&copy; 2026 Mechanical Department. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const SUPABASE_URL = 'https://itpkvcrlakjxisrfzagj.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml0cGt2Y3JsYWtqeGlzcmZ6YWdqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMzNzQ3NjYsImV4cCI6MjA4ODk1MDc2Nn0.jICpAPiNgQTlidRU5yoszPJTHYbYdr3FSLXz7gowohg';
+        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        function toggleOtherBranch() {
+            const select = document.getElementById('branchSelect');
+            const otherContainer = document.getElementById('otherBranchContainer');
+            const otherInput = document.getElementById('otherBranchInput');
+
+            if (select.value === 'Other') {
+                otherContainer.classList.remove('hidden');
+                otherInput.setAttribute('required', 'required');
+            } else {
+                otherContainer.classList.add('hidden');
+                otherInput.removeAttribute('required');
+            }
+        }
+
+        const joinForm = document.getElementById('registrationForm');
+        joinForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            btn.innerText = "PROCESSING...";
+            btn.disabled = true;
+
+            const branchSelect = document.getElementById('branchSelect').value;
+            const finalBranch = branchSelect === 'Other' ? document.getElementById('otherBranchInput').value : branchSelect;
+
+            const formData = {
+                email: joinForm.querySelector('input[type="email"]').value,
+                phone: joinForm.querySelector('input[type="tel"]').value,
+                branch: finalBranch,
+                semester: document.getElementById('semesterSelect').value
+            };
+
+            const { data, error } = await _supabase.from('applications').insert([formData]);
+
+            if (error) {
+                alert("Error: " + error.message);
+                btn.innerText = "SUBMIT REGISTRATION";
+                btn.disabled = false;
+            } else {
+                const modal = document.getElementById('successModal');
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                joinForm.reset();
+                toggleOtherBranch();
+            }
+        });
+
+        function redirectToHome() { window.location.href = 'index.html'; }
+    </script>
+</body>
+</html>
