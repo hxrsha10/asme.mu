@@ -7,87 +7,42 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        .hero-bg {
-            background-color: #1e3a8a; 
-            background-image: url('hero-photo.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        .hero-overlay {
-            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.7));
-        }
-
-        /* Styling specifically for your Gear Logo */
-        .asme-logo {
-            height: 50px; /* Slightly larger because of the detail */
-            width: 50px;
-            object-fit: cover;
-            border-radius: 50%; /* Makes it a circle to hide black corners */
-            border: 2px solid rgba(255, 255, 255, 0.2); /* Subtle ring */
-            filter: brightness(1.1); /* Makes the silver pop */
-        }
+        .hero-bg { background-color: #1e3a8a; background-image: url('hero-photo.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; }
+        .hero-overlay { background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.7)); }
+        .asme-logo { height: 40px; width: 40px; object-fit: cover; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.2); filter: brightness(1.1); }
     </style>
 </head>
 <body class="bg-gray-50 font-sans text-gray-900">
 
-    <nav class="bg-blue-900 text-white p-3 sticky top-0 z-50 shadow-xl border-none">
-        <div class="container mx-auto flex justify-between items-center">
-            
-            <div class="flex items-center space-x-4">
-                <img src="logo.png" alt="ASME MU Logo" class="asme-logo">
-                
-                <div class="border-l border-white/20 pl-4">
-                    <h1 class="text-xl md:text-2xl font-bold tracking-tight italic leading-tight">
-                        ASME <span class="font-light text-blue-200 text-lg not-italic">| Marwadi University</span>
-                    </h1>
-                    <p class="text-[10px] uppercase tracking-[0.2em] text-blue-300 font-bold">Student Chapter</p>
+    <nav class="bg-blue-900 text-white p-3 sticky top-0 z-50 shadow-xl">
+        <div class="container mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center space-x-3">
+                <img src="logo.png" alt="ASME MU Logo" class="asme-logo flex-shrink-0">
+                <div class="border-l border-white/20 pl-3">
+                    <h1 class="text-lg md:text-2xl font-bold tracking-tight italic leading-tight">ASME <span class="font-light text-blue-200 text-sm md:text-lg not-italic">| MU</span></h1>
                 </div>
             </div>
-            
-            <ul class="hidden lg:flex items-center space-x-8 text-xs uppercase tracking-widest font-semibold">
-                <li><a href="index.html" class="text-blue-300 transition">Home</a></li>
-                <li><a href="committee.html" class="hover:text-blue-300 transition">Committee</a></li>
+            <ul class="flex items-center space-x-3 md:space-x-6 text-[10px] md:text-xs uppercase tracking-widest font-semibold">
+                <li><a href="index.html" class="text-blue-300">Home</a></li>
+                <li><a href="committee.html" class="hover:text-blue-300 transition">Team</a></li>
                 <li><a href="events.html" class="hover:text-blue-300 transition">Events</a></li>
-                <li><a href="join.html" class="bg-blue-700 px-6 py-2 rounded-lg hover:bg-blue-600 transition shadow-md">Join Us</a></li>
+                <li><a href="join.html" class="bg-blue-700 px-3 py-1.5 md:px-6 md:py-2 rounded-lg hover:bg-blue-600 shadow-md">Join</a></li>
             </ul>
         </div>
     </nav>
 
-    <header class="hero-bg relative text-white py-32 px-4 overflow-hidden text-center min-h-screen flex items-center">
-        <div class="hero-overlay absolute top-0 left-0 w-full h-full z-0"></div>
-
+    <header class="hero-bg relative text-white py-20 md:py-32 px-4 text-center min-h-screen flex items-center">
+        <div class="hero-overlay absolute inset-0 z-0"></div>
         <div class="container mx-auto relative z-10">
-            <div class="inline-block px-4 py-1 border border-blue-400 rounded-full text-blue-300 text-xs font-bold uppercase tracking-widest mb-6 bg-blue-900/50">
-                Mechanical Engineering Department
-            </div>
-            
-            <h2 class="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tighter leading-none">
-                ASME <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white"> MU</span>
-            </h2>
-            
-            <p class="text-lg md:text-xl text-blue-100 max-w-4xl mx-auto mb-10 font-light leading-relaxed">
-                The official student chapter of the <br>
-                <span class="font-semibold text-white whitespace-nowrap uppercase tracking-wide">American Society of Mechanical Engineers</span>. 
-                <br>
-                Pioneering innovation and technical excellence at Marwadi University.
-            </p>
-
-            <div class="flex flex-col md:flex-row justify-center items-center gap-4">
-                <a href="committee.html" class="bg-white text-blue-900 px-10 py-4 rounded-lg font-bold transition-all hover:scale-105 shadow-xl flex items-center">
-                    Meet the Team
-                </a>
-                <a href="events.html" class="bg-blue-700 text-white border border-blue-400 px-10 py-4 rounded-lg font-bold transition-all hover:bg-blue-600 shadow-xl flex items-center">
-                    Explore Events
-                </a>
+            <h2 class="text-4xl md:text-7xl font-black mb-6 uppercase tracking-tighter">ASME <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white"> MU</span></h2>
+            <p class="text-base md:text-xl text-blue-100 max-w-2xl mx-auto mb-10 font-light px-4">The official student chapter of the American Society of Mechanical Engineers at Marwadi University.</p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="committee.html" class="w-full sm:w-auto bg-white text-blue-900 px-8 py-3 rounded-lg font-bold shadow-xl">Meet the Team</a>
+                <a href="events.html" class="w-full sm:w-auto bg-blue-700 text-white border border-blue-400 px-8 py-3 rounded-lg font-bold shadow-xl">Explore Events</a>
             </div>
         </div>
     </header>
 
-    <footer class="bg-gray-900 text-white py-12 text-center">
-        <p class="text-xs text-gray-500 uppercase tracking-widest">&copy; 2026 Mechanical Department. All Rights Reserved.</p>
-    </footer>
-
+    <footer class="bg-gray-900 text-white py-8 text-center text-[10px] text-gray-500 uppercase tracking-widest">&copy; 2026 Mechanical Department.</footer>
 </body>
 </html>
