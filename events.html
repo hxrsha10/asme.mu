@@ -11,48 +11,50 @@
         #eventModal { transition: all 0.3s ease; }
         .animate-pop { animation: modalPop 0.3s ease-out forwards; }
         @keyframes modalPop { from { opacity: 0; transform: scale(0.9) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
-        .asme-logo { height: 48px; width: 48px; object-fit: cover; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.2); filter: brightness(1.1); }
+        .asme-logo { height: 40px; width: 40px; object-fit: cover; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.2); filter: brightness(1.1); }
         select { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e"); background-position: right 1rem center; background-repeat: no-repeat; background-size: 1.5em 1.5em; padding-right: 2.5rem; }
     </style>
 </head>
 <body class="bg-gray-50 font-sans text-gray-900 min-h-screen">
 
     <nav class="bg-blue-900 text-white p-3 sticky top-0 z-50 shadow-xl">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-4">
-                <img src="logo.png" alt="ASME MU Logo" class="asme-logo">
-                <div class="border-l border-white/20 pl-4">
-                    <h1 class="text-xl md:text-2xl font-bold tracking-tight italic leading-tight">
-                        ASME <span class="font-light text-blue-200 text-lg not-italic">| Marwadi University</span>
+        <div class="container mx-auto flex flex-wrap justify-between items-center gap-y-3">
+            
+            <div class="flex items-center space-x-3">
+                <img src="logo.png" alt="ASME MU Logo" class="asme-logo flex-shrink-0">
+                <div class="border-l border-white/20 pl-3">
+                    <h1 class="text-lg md:text-2xl font-bold tracking-tight italic leading-tight">
+                        ASME <span class="font-light text-blue-200 text-sm md:text-lg not-italic">| MU</span>
                     </h1>
                 </div>
             </div>
-            <ul class="hidden lg:flex items-center space-x-8 text-xs uppercase tracking-widest font-semibold">
+
+            <ul class="flex items-center space-x-3 md:space-x-8 text-[10px] md:text-xs uppercase tracking-widest font-semibold">
                 <li><a href="index.html" class="hover:text-blue-300 transition">Home</a></li>
-                <li><a href="committee.html" class="hover:text-blue-300 transition">Committee</a></li>
+                <li><a href="committee.html" class="hover:text-blue-300 transition">Team</a></li>
                 <li><a href="events.html" class="text-blue-300 border-b-2 border-blue-300 transition">Events</a></li>
-                <li><a href="join.html" class="bg-blue-700 px-6 py-2 rounded-lg hover:bg-blue-600 transition shadow-md">Join Us</a></li>
+                <li><a href="join.html" class="bg-blue-700 px-3 py-1.5 md:px-6 md:py-2 rounded-lg hover:bg-blue-600 transition shadow-md">Join</a></li>
             </ul>
         </div>
     </nav>
 
-    <div class="py-16 container mx-auto px-4 max-w-6xl">
+    <div class="py-12 md:py-16 container mx-auto px-4 max-w-6xl">
         <div class="mb-20">
             <div class="flex items-center space-x-4 mb-10">
-                <h3 class="text-3xl font-black text-gray-800 uppercase tracking-tighter">Upcoming Events</h3>
+                <h3 class="text-2xl md:text-3xl font-black text-gray-800 uppercase tracking-tighter">Upcoming Events</h3>
                 <div class="h-1 flex-grow bg-blue-600 rounded-full opacity-20"></div>
             </div>
-            <div id="upcomingGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div id="upcomingGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 <div class="col-span-full py-12 text-center text-gray-400 italic">Syncing with database...</div>
             </div>
         </div>
 
         <div>
             <div class="flex items-center space-x-4 mb-10">
-                <h3 class="text-3xl font-black text-gray-400 uppercase tracking-tighter">Past Events</h3>
+                <h3 class="text-2xl md:text-3xl font-black text-gray-400 uppercase tracking-tighter">Past Events</h3>
                 <div class="h-1 flex-grow bg-gray-300 rounded-full opacity-20"></div>
             </div>
-            <div id="pastGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+            <div id="pastGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"></div>
         </div>
     </div>
 
@@ -62,39 +64,41 @@
                 <button onclick="closeEvent()" class="absolute top-4 right-4 text-white/50 hover:text-white transition text-2xl"><i class="fas fa-times"></i></button>
                 <i id="modalIcon" class="fas fa-calendar-star"></i>
             </div>
-            <div class="p-8 max-h-[80vh] overflow-y-auto">
-                <div id="modalTag" class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold uppercase mb-4"></div>
-                <h2 id="modalTitle" class="text-3xl font-black text-gray-800 uppercase tracking-tight mb-2"></h2>
-                <p id="modalDate" class="text-blue-600 font-bold text-sm mb-6"></p>
-                <div id="winnersContainer" class="hidden mb-6 p-5 bg-yellow-50 border-l-4 border-yellow-400 rounded-2xl">
-                    <h5 class="text-yellow-700 font-bold text-xs uppercase tracking-widest mb-1"><i class="fas fa-trophy mr-2 text-yellow-500"></i> Winners Circle</h5>
-                    <p id="modalWinners" class="text-gray-900 font-bold italic text-lg"></p>
+            <div class="p-6 md:p-8 max-h-[85vh] overflow-y-auto">
+                <div id="modalTag" class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-[10px] font-bold uppercase mb-4"></div>
+                <h2 id="modalTitle" class="text-2xl md:text-3xl font-black text-gray-800 uppercase tracking-tight mb-2 leading-tight"></h2>
+                <p id="modalDate" class="text-blue-600 font-bold text-xs md:text-sm mb-6"></p>
+                
+                <div id="winnersContainer" class="hidden mb-6 p-4 md:p-5 bg-yellow-50 border-l-4 border-yellow-400 rounded-2xl">
+                    <h5 class="text-yellow-700 font-bold text-[10px] uppercase tracking-widest mb-1"><i class="fas fa-trophy mr-2 text-yellow-500"></i> Winners Circle</h5>
+                    <p id="modalWinners" class="text-gray-900 font-bold italic text-base md:text-lg"></p>
                 </div>
-                <p id="modalDesc" class="text-gray-600 leading-relaxed mb-6"></p>
-                <div id="modalExtra" class="bg-gray-50 p-4 rounded-xl border-l-4 border-blue-600 mb-6 text-sm font-semibold text-gray-500"></div>
+
+                <p id="modalDesc" class="text-sm md:text-base text-gray-600 leading-relaxed mb-6"></p>
+                <div id="modalExtra" class="bg-gray-50 p-4 rounded-xl border-l-4 border-blue-600 mb-6 text-xs md:text-sm font-semibold text-gray-500"></div>
 
                 <div id="regFormContainer" class="hidden mt-8 pt-8 border-t border-gray-100">
-                    <h4 class="text-xl font-bold text-gray-800 mb-4 uppercase">Register Now</h4>
+                    <h4 class="text-lg md:text-xl font-bold text-gray-800 mb-4 uppercase">Register Now</h4>
                     <form id="registrationForm" class="space-y-4">
                         <input type="hidden" id="regEventTitle">
-                        <input type="email" id="regEmail" placeholder="University Email" required class="w-full p-4 rounded-2xl border border-gray-200 focus:border-blue-500 outline-none transition bg-gray-50/50">
+                        <input type="email" id="regEmail" placeholder="University Email" required class="w-full p-3 md:p-4 rounded-2xl border border-gray-200 focus:border-blue-500 outline-none transition bg-gray-50/50 text-sm">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input type="text" id="regPhone" placeholder="Phone Number" required class="w-full p-4 rounded-2xl border border-gray-200 focus:border-blue-500 outline-none transition bg-gray-50/50">
-                            <input type="text" id="regGR" placeholder="GR Number" required class="w-full p-4 rounded-2xl border border-gray-200 focus:border-blue-500 outline-none transition bg-gray-50/50">
+                            <input type="text" id="regPhone" placeholder="Phone Number" required class="w-full p-3 md:p-4 rounded-2xl border border-gray-200 focus:border-blue-500 outline-none transition bg-gray-50/50 text-sm">
+                            <input type="text" id="regGR" placeholder="GR Number" required class="w-full p-3 md:p-4 rounded-2xl border border-gray-200 focus:border-blue-500 outline-none transition bg-gray-50/50 text-sm">
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <select id="regBranch" onchange="toggleOtherBranch()" required class="w-full p-4 rounded-2xl border border-gray-200 focus:border-blue-500 outline-none transition bg-white appearance-none cursor-pointer">
+                            <select id="regBranch" onchange="toggleOtherBranch()" required class="w-full p-3 md:p-4 rounded-2xl border border-gray-200 focus:border-blue-500 outline-none transition bg-white text-sm cursor-pointer appearance-none">
                                 <option value="">Select Branch</option><option value="Mechanical">Mechanical</option><option value="ICT">ICT</option><option value="Computer">Computer</option><option value="Civil">Civil</option><option value="Other">Other</option>
                             </select>
-                            <select id="regSem" required class="w-full p-4 rounded-2xl border border-gray-200 focus:border-blue-500 outline-none transition bg-white appearance-none cursor-pointer">
+                            <select id="regSem" required class="w-full p-3 md:p-4 rounded-2xl border border-gray-200 focus:border-blue-500 outline-none transition bg-white text-sm cursor-pointer appearance-none">
                                 <option value="">Semester</option><option value="1">1st Sem</option><option value="2">2nd Sem</option><option value="3">3rd Sem</option><option value="4">4th Sem</option><option value="5">5th Sem</option><option value="6">6th Sem</option><option value="7">7th Sem</option><option value="8">8th Sem</option>
                             </select>
                         </div>
-                        <div id="otherBranchContainer" class="hidden animate-pop"><input type="text" id="regOtherBranch" placeholder="Please specify your branch" class="w-full p-4 rounded-2xl border border-blue-200 bg-blue-50 focus:border-blue-500 outline-none transition"></div>
-                        <button type="submit" id="regSubmitBtn" class="w-full bg-green-600 text-white py-4 rounded-2xl font-bold hover:bg-green-700 transition shadow-lg mt-4">Complete Registration</button>
+                        <div id="otherBranchContainer" class="hidden animate-pop"><input type="text" id="regOtherBranch" placeholder="Please specify your branch" class="w-full p-3 md:p-4 rounded-2xl border border-blue-200 bg-blue-50 text-sm"></div>
+                        <button type="submit" id="regSubmitBtn" class="w-full bg-green-600 text-white py-3 md:py-4 rounded-2xl font-bold hover:bg-green-700 transition shadow-lg mt-4 text-sm md:text-base">Complete Registration</button>
                     </form>
                 </div>
-                <button onclick="closeEvent()" class="w-full mt-6 text-gray-400 font-bold hover:text-gray-600 transition">Close</button>
+                <button onclick="closeEvent()" class="w-full mt-6 text-gray-400 font-bold hover:text-gray-600 transition text-sm">Close</button>
             </div>
         </div>
     </div>
@@ -115,8 +119,8 @@
             upcomingGrid.innerHTML = ''; pastGrid.innerHTML = '';
             allEvents.forEach((event, index) => {
                 const card = `<div onclick="openEventByIndex(${index})" class="bg-white rounded-2xl shadow-lg overflow-hidden border-t-4 ${event.is_upcoming ? 'border-blue-600' : 'border-gray-300'} cursor-pointer hover:scale-105 transition-all duration-300">
-                    <div class="h-40 bg-blue-800 flex items-center justify-center text-white text-4xl"><i class="${event.icon_name || 'fas fa-calendar-alt'}"></i></div>
-                    <div class="p-6"><span class="text-blue-600 text-xs font-bold uppercase">${event.category || 'Event'}</span><h4 class="text-xl font-bold mt-2">${event.title}</h4><p class="text-gray-400 text-xs mt-4">${event.event_date || 'TBA'}</p></div></div>`;
+                    <div class="h-32 md:h-40 bg-blue-800 flex items-center justify-center text-white text-3xl md:text-4xl"><i class="${event.icon_name || 'fas fa-calendar-alt'}"></i></div>
+                    <div class="p-4 md:p-6"><span class="text-blue-600 text-[10px] font-bold uppercase">${event.category || 'Event'}</span><h4 class="text-base md:text-xl font-bold mt-1 md:mt-2">${event.title}</h4><p class="text-gray-400 text-[10px] md:text-xs mt-3 md:mt-4">${event.event_date || 'TBA'}</p></div></div>`;
                 if (event.is_upcoming) upcomingGrid.innerHTML += card; else pastGrid.innerHTML += card;
             });
         }
