@@ -70,12 +70,18 @@
                 <p id="modalDate" class="text-blue-600 font-bold text-xs md:text-sm mb-6"></p>
                 
                 <div id="winnersContainer" class="hidden mb-6 p-4 md:p-5 bg-yellow-50 border-l-4 border-yellow-400 rounded-2xl">
-                    <h5 class="text-yellow-700 font-bold text-[10px] uppercase tracking-widest mb-1"><i class="fas fa-trophy mr-2 text-yellow-500"></i> Winners Circle</h5>
+                    <h5><i class="fas fa-trophy mr-2 text-yellow-500"></i> Winners Circle</h5>
                     <p id="modalWinners" class="text-gray-900 font-bold italic text-base md:text-lg"></p>
                 </div>
 
                 <p id="modalDesc" class="text-sm md:text-base text-gray-600 leading-relaxed mb-6"></p>
                 <div id="modalExtra" class="bg-gray-50 p-4 rounded-xl border-l-4 border-blue-600 mb-6 text-xs md:text-sm font-semibold text-gray-500"></div>
+
+                <div id="reportContainer" class="hidden mb-6">
+                    <a id="modalReportBtn" href="#" target="_blank" class="w-full flex items-center justify-center gap-2 bg-red-600 text-white py-3 rounded-2xl font-bold hover:bg-red-700 transition shadow-md text-sm md:text-base">
+                        <i class="fas fa-file-pdf"></i> View Event Report
+                    </a>
+                </div>
 
                 <div id="regFormContainer" class="hidden mt-8 pt-8 border-t border-gray-100">
                     <h4 class="text-lg md:text-xl font-bold text-gray-800 mb-4 uppercase">Register Now</h4>
@@ -141,10 +147,22 @@
             document.getElementById('modalDesc').innerText = event.description;
             document.getElementById('modalExtra').innerText = event.extra_info || "";
             document.getElementById('modalIcon').className = event.icon_name || 'fas fa-calendar-check';
+            
             const winnersBox = document.getElementById('winnersContainer');
             if (event.winners && event.winners.trim() !== "" && event.winners !== "null") {
                 winnersBox.classList.remove('hidden'); document.getElementById('modalWinners').innerText = event.winners;
             } else { winnersBox.classList.add('hidden'); }
+            
+            // Handle Report PDF Button Logic
+            const reportContainer = document.getElementById('reportContainer');
+            const modalReportBtn = document.getElementById('modalReportBtn');
+            if (event.report_url && event.report_url.trim() !== "" && event.report_url !== "null") {
+                reportContainer.classList.remove('hidden');
+                modalReportBtn.href = event.report_url;
+            } else {
+                reportContainer.classList.add('hidden');
+            }
+
             const regForm = document.getElementById('regFormContainer');
             if (event.is_upcoming) { regForm.classList.remove('hidden'); document.getElementById('regEventTitle').value = event.title; } else { regForm.classList.add('hidden'); }
             modal.classList.remove('hidden'); modal.classList.add('flex'); document.body.classList.add('modal-active');
