@@ -8,8 +8,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         .asme-logo { height: 40px; width: 40px; object-fit: cover; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.2); filter: brightness(1.1); }
-        .photo-container { position: relative; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; }
-        .circular-frame { border-radius: 50%; padding: 4px; transition: transform 0.3s ease; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .photo-container { position: relative; margin: 0 auto 1.5rem auto; }
+        .circular-frame { border-radius: 50%; padding: 4px; transition: transform 0.3s ease; box-sizing: border-box; }
         .photo-container:hover .circular-frame { transform: scale(1.05); }
         .faculty-border { background: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728); }
         .student-border { background: linear-gradient(45deg, #a0a0a0, #e0e0e0, #808080); }
@@ -30,7 +30,7 @@
                 <li><a href="index.html" class="hover:text-blue-300 transition">Home</a></li>
                 <li><a href="committee.html" class="text-blue-300 border-b-2 border-blue-300 transition">Team</a></li>
                 <li><a href="events.html" class="hover:text-blue-300 transition">Events</a></li>
-                <li><a href="join.html" class="bg-blue-700 px-3 py-1.5 md:px-6 md:py-2 rounded-lg hover:bg-blue-600 transition shadow-md transition">Join</a></li>
+                <li><a href="join.html" class="bg-blue-700 px-3 py-1.5 md:px-6 md:py-2 rounded-lg hover:bg-blue-600 shadow-md transition">Join</a></li>
             </ul>
         </div>
     </nav>
@@ -41,9 +41,10 @@
             <div class="h-1 w-16 bg-blue-600 mx-auto mt-3 rounded-full"></div>
         </div>
 
+        <!-- Faculty Coordinator -->
         <div class="max-w-md mx-auto mb-20 px-2">
             <div class="bg-white p-8 md:p-10 rounded-2xl shadow-xl text-center border-b-8 border-orange-400">
-                <div class="photo-container w-52 h-52 md:w-60 md:h-60">
+                <div class="photo-container w-52 h-52 md:w-60 md:h-60 aspect-square">
                     <div class="circular-frame faculty-border w-full h-full">
                         <img src="faculty_karan.jpeg" alt="Dr. Karan Motwani" class="profile-img">
                     </div>
@@ -58,10 +59,11 @@
             </div>
         </div>
 
+        <!-- Student Committee -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8">
             
             <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg text-center border-t-4 border-blue-600">
-                <div class="photo-container w-48 h-48 md:w-52 md:h-52">
+                <div class="photo-container w-48 h-48 md:w-52 md:h-52 aspect-square">
                     <div class="circular-frame student-border w-full h-full">
                         <img src="chairman_meet.jpeg" alt="MEET SINDHAVA" class="profile-img">
                     </div>
@@ -76,7 +78,7 @@
             </div>
 
             <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg text-center border-t-4 border-blue-600">
-                <div class="photo-container w-48 h-48 md:w-52 md:h-52">
+                <div class="photo-container w-48 h-48 md:w-52 md:h-52 aspect-square">
                     <div class="circular-frame student-border w-full h-full">
                         <img src="vice_jaswanth.jpeg" alt="Jaswanth Vardha" class="profile-img">
                     </div>
@@ -91,7 +93,7 @@
             </div>
 
             <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg text-center border-t-4 border-red-600">
-                <div class="photo-container w-48 h-48 md:w-52 md:h-52">
+                <div class="photo-container w-48 h-48 md:w-52 md:h-52 aspect-square">
                     <div class="circular-frame student-border w-full h-full">
                         <img src="media_harsha.jpeg" alt="Harsha Vardhan Lalam" class="profile-img">
                     </div>
@@ -106,7 +108,7 @@
             </div>
 
             <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg text-center border-t-4 border-blue-600">
-                <div class="photo-container w-48 h-48 md:w-52 md:h-52">
+                <div class="photo-container w-48 h-48 md:w-52 md:h-52 aspect-square">
                     <div class="circular-frame student-border w-full h-full">
                         <img src="treasurer_happy.jpeg" alt="Happy Maheta" class="profile-img">
                     </div>
@@ -121,7 +123,7 @@
             </div>
 
             <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg text-center border-t-4 border-blue-600">
-                <div class="photo-container w-48 h-48 md:w-52 md:h-52">
+                <div class="photo-container w-48 h-48 md:w-52 md:h-52 aspect-square">
                     <div class="circular-frame student-border w-full h-full">
                         <img src="dhyanik.jpeg" alt="Dhyanik Patel" class="profile-img">
                     </div>
@@ -136,7 +138,7 @@
             </div>
 
             <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg text-center border-t-4 border-blue-600">
-                <div class="photo-container w-48 h-48 md:w-52 md:h-52">
+                <div class="photo-container w-48 h-48 md:w-52 md:h-52 aspect-square">
                     <div class="circular-frame student-border w-full h-full">
                         <img src="pratyush.jpeg" alt="Pratyush Rana" class="profile-img">
                     </div>
@@ -151,7 +153,7 @@
             </div>
 
             <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg text-center border-t-4 border-blue-600">
-                <div class="photo-container w-48 h-48 md:w-52 md:h-52">
+                <div class="photo-container w-48 h-48 md:w-52 md:h-52 aspect-square">
                     <div class="circular-frame student-border w-full h-full">
                         <img src="tech_akash.jpeg" alt="Akash Suvvari" class="profile-img">
                     </div>
@@ -166,7 +168,7 @@
             </div>
 
             <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg text-center border-t-4 border-blue-600">
-                <div class="photo-container w-48 h-48 md:w-52 md:h-52">
+                <div class="photo-container w-48 h-48 md:w-52 md:h-52 aspect-square">
                     <div class="circular-frame student-border w-full h-full">
                         <img src="secretary_krish.jpeg" alt="Krish R. Sanchania" class="profile-img">
                     </div>
@@ -181,7 +183,7 @@
             </div>
 
             <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg text-center border-t-4 border-blue-600">
-                <div class="photo-container w-48 h-48 md:w-52 md:h-52">
+                <div class="photo-container w-48 h-48 md:w-52 md:h-52 aspect-square">
                     <div class="circular-frame student-border w-full h-full">
                         <img src="vivek_neteti.jpeg" alt="Vivek Neteti" class="profile-img">
                     </div>
@@ -196,7 +198,7 @@
             </div>
 
             <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg text-center border-t-4 border-blue-600">
-                <div class="photo-container w-48 h-48 md:w-52 md:h-52">
+                <div class="photo-container w-48 h-48 md:w-52 md:h-52 aspect-square">
                     <div class="circular-frame student-border w-full h-full">
                         <img src="sandeep.jpeg" alt="Sandeep Koduru" class="profile-img">
                     </div>
